@@ -10,8 +10,8 @@ ENV PATH $JAVA_HOME/bin:$PATH
 
 # https://jdk.java.net/
 ENV JAVA_VERSION 14-ea+15
-ENV JAVA_URL https://download.java.net/java/early_access/alpine/15/binaries/openjdk-14-ea+15_linux-x64-musl_bin.tar.gz
-ENV JAVA_SHA256 76091da1b6ed29788f0cf85454d23900a4134286e5feb571247e5861f618d3cd
+ENV JAVA_URL https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz
+ENV JAVA_SHA256 6f25bcb94d3e22fb52a4632c74e03b403834e81b68701ab7ecd900fb9cd89f43
 # "For Alpine Linux, builds are produced on a reduced schedule and may not be in sync with the other platforms."
 
 RUN echo "Downloading OpenJDK " && \

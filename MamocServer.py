@@ -45,16 +45,16 @@ class MamocServer(ApplicationSession):
         self.publish('uk.ac.standrews.cs.mamoc.stats', cpu, mem, battery)
         print("published server stats")
 
-        # async def receive_file(n, details=None):
-        #     if details.progress:
-        #         for i in range(n):
-        #             details.progress(i)
-        #             await asyncio.sleep(1)
-        #     else:
-        #         await asyncio.sleep(1 * n)
-        #     return n
-        #
-        # await self.register(receive_file, u'uk.ac.standrews.cs.mamoc.sendfile', RegisterOptions(details_arg='details'))
+        async def receive_file(n, details=None):
+            if details.progress:
+                for i in range(n):
+                    details.progress(i)
+                    await asyncio.sleep(1)
+            else:
+                await asyncio.sleep(1 * n)
+            return n
+        
+        await self.register(receive_file, u'uk.ac.standrews.cs.mamoc.sendfile', RegisterOptions(details_arg='details'))
 
         async def on_offloding_event(source, rpcname, code, resourcename, params):
             print("Received from: {} app".format(source))
